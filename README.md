@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Bookmark App
 
-## Getting Started
+A simple bookmark manager built with Next.js (App Router), Supabase (Auth, Database, Realtime), and Tailwind CSS. Users can log in with Google, add/delete bookmarks, and see updates in real-time.
 
-First, run the development server:
+## Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Smart Bookmark App Live](https://smart-bookmark-app-tau-eight.vercel.app)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## GitHub Repo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[GitHub Repository](https://github.com/udaysutaria20/smart-bookmark-app)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Problems I Ran Into and How I Solved Them
 
-## Learn More
+1. **Git not recognized in VS Code**
+   - Error: `git : The term 'git' is not recognized`
+   - Solution: Installed Git for Windows, added it to PATH, restarted VS Code.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Module not found: '@/lib/supabase'**
+   - Error during build: Next.js couldn’t find supabase client.
+   - Solution: Corrected import paths to relative path (`../../lib/supabase`) and/or created proper `jsconfig.json` with alias.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Vercel build failed**
+   - Error: `npm run build exited with 1`
+   - Solution: Added Supabase environment variables (`NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`) in Vercel dashboard.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Deleting Git repo to start fresh**
+   - Issue: Made mistakes in Git setup.
+   - Solution: Removed `.git` folder with `Remove-Item -Recurse -Force .git` in PowerShell, reinitialized Git, and pushed to GitHub.
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Google login (OAuth only)  
+- Add, delete bookmarks  
+- Bookmarks are private per user  
+- Real-time updates across tabs  
+- Tailwind CSS styling  
+- Deployed on Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
